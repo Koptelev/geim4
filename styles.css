@@ -761,6 +761,24 @@ section {
     .departments-grid {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     }
+    
+    .container {
+        padding: 0 15px;
+    }
+    
+    section {
+        padding: 60px 0;
+    }
+    
+    .united-ring {
+        width: 300px;
+        height: 300px;
+    }
+    
+    .element {
+        width: 150px;
+        height: 150px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -778,6 +796,80 @@ section {
     
     .join-button {
         padding: 15px 30px;
+        font-size: 1rem;
+    }
+    
+    .container {
+        padding: 0 10px;
+    }
+    
+    section {
+        padding: 40px 0;
+    }
+    
+    .united-ring {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .element {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .nav-container {
+        padding: 0 15px;
+    }
+    
+    .nav-logo span {
+        font-size: 1rem;
+    }
+    
+    .nav-logo i {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .hero-title {
+        font-size: 1.8rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.9rem;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+    
+    .container {
+        padding: 0 8px;
+    }
+    
+    section {
+        padding: 30px 0;
+    }
+    
+    .united-ring {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .element {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .nav-container {
+        padding: 0 10px;
+    }
+    
+    .nav-logo span {
+        font-size: 0.9rem;
+    }
+    
+    .nav-logo i {
         font-size: 1rem;
     }
 }
