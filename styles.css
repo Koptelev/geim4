@@ -1,0 +1,828 @@
+/* Основные стили и переменные */
+:root {
+    --deep-blue: #0a0e1a;
+    --fire-red: #ff4757;
+    --fire-orange: #ff6b35;
+    --green: #2ed573;
+    --green-light: #7bed9f;
+    --aqua: #00d2d3;
+    --aqua-light: #54a0ff;
+    --purple: #5f27cd;
+    --purple-light: #a55eea;
+    --white: #ffffff;
+    --light-gray: #f8f9fa;
+    --dark-gray: #2c3e50;
+    --gradient-fire: linear-gradient(135deg, #ff4757, #ff6b35, #ff3838);
+    --gradient-air: linear-gradient(135deg, #00d2d3, #54a0ff, #5f27cd);
+    --gradient-earth: linear-gradient(135deg, #2ed573, #7bed9f, #26de81);
+    --gradient-water: linear-gradient(135deg, #3742fa, #5f27cd, #a55eea);
+    --gradient-hero: linear-gradient(135deg, #ff4757, #00d2d3, #2ed573, #5f27cd);
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.25);
+    --shadow-glow: 0 0 30px rgba(255, 71, 87, 0.3);
+    --border-radius: 20px;
+    --border-radius-large: 30px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Exo 2', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: var(--dark-gray);
+    overflow-x: hidden;
+    background: var(--deep-blue);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Навигация */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(10, 25, 41, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--white);
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.nav-logo i {
+    color: var(--fire-red);
+    font-size: 1.5rem;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-menu a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+    color: var(--aqua);
+}
+
+.cta-button {
+    background: var(--gradient-fire);
+    padding: 10px 20px;
+    border-radius: 25px;
+    color: var(--white) !important;
+    transition: transform 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: var(--white);
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+/* Главный экран */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: var(--deep-blue);
+    overflow: hidden;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.element {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: float 6s ease-in-out infinite;
+}
+
+.element-fire {
+    background: var(--gradient-fire);
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.element-air {
+    background: var(--gradient-air);
+    top: 60%;
+    right: 15%;
+    animation-delay: 1.5s;
+}
+
+.element-earth {
+    background: var(--gradient-earth);
+    bottom: 20%;
+    left: 20%;
+    animation-delay: 3s;
+}
+
+.element-water {
+    background: var(--gradient-water);
+    top: 30%;
+    right: 30%;
+    animation-delay: 4.5s;
+}
+
+.united-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 400px;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, var(--fire-red), var(--aqua), var(--green), var(--fire-red));
+    animation: rotate 20s linear infinite;
+}
+
+.united-ring::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    background: var(--deep-blue);
+    border-radius: 50%;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes rotate {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.hero-content {
+    text-align: center;
+    color: var(--white);
+    z-index: 2;
+    position: relative;
+}
+
+.hero-title {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, var(--fire-red), var(--aqua), var(--green));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from { filter: drop-shadow(0 0 20px rgba(255, 71, 87, 0.5)); }
+    to { filter: drop-shadow(0 0 30px rgba(0, 210, 211, 0.5)); }
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 40px;
+    opacity: 0.9;
+}
+
+.hero-cta {
+    background: var(--gradient-fire);
+    border: none;
+    padding: 15px 30px;
+    border-radius: 30px;
+    color: var(--white);
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 auto;
+}
+
+.hero-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* Секции */
+section {
+    padding: 80px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 60px;
+    color: var(--deep-blue);
+}
+
+/* О гейме */
+.about {
+    background: var(--light-gray);
+}
+
+.game-info {
+    display: grid;
+    gap: 60px;
+}
+
+.game-overview {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.game-overview h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: var(--deep-blue);
+}
+
+.game-overview p {
+    font-size: 1.1rem;
+    color: var(--dark-gray);
+}
+
+.elements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.element-card {
+    background: var(--white);
+    padding: 40px 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.element-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--gradient-fire);
+}
+
+.element-card.air::before {
+    background: var(--gradient-air);
+}
+
+.element-card.earth::before {
+    background: var(--gradient-earth);
+}
+
+.element-card.water::before {
+    background: var(--gradient-water);
+}
+
+.element-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-hover);
+}
+
+.element-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 2rem;
+    color: var(--white);
+    background: var(--gradient-fire);
+}
+
+.element-card.air .element-icon {
+    background: var(--gradient-air);
+}
+
+.element-card.earth .element-icon {
+    background: var(--gradient-earth);
+}
+
+.element-card.water .element-icon {
+    background: var(--gradient-water);
+}
+
+.element-card h4 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: var(--deep-blue);
+}
+
+.element-card p {
+    color: var(--dark-gray);
+}
+
+/* Как это работает */
+.how-it-works {
+    background: var(--white);
+}
+
+.workflow {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.workflow-step {
+    text-align: center;
+    padding: 40px 20px;
+    position: relative;
+}
+
+.step-number {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--gradient-fire);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 auto 20px;
+}
+
+.workflow-step:nth-child(2) .step-number {
+    background: var(--gradient-air);
+}
+
+.workflow-step:nth-child(3) .step-number {
+    background: var(--gradient-earth);
+}
+
+.workflow-step h4 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: var(--deep-blue);
+}
+
+.workflow-step p {
+    color: var(--dark-gray);
+}
+
+/* Участники */
+.participants {
+    background: var(--light-gray);
+}
+
+.departments-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.department-card {
+    background: var(--white);
+    padding: 30px 20px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.department-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.department-card h4 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: var(--deep-blue);
+}
+
+.department-card p {
+    color: var(--dark-gray);
+    font-size: 0.9rem;
+}
+
+/* Мир будущего */
+.future-world {
+    background: var(--deep-blue);
+    color: var(--white);
+}
+
+.future-world .section-title {
+    color: var(--white);
+}
+
+.world-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.world-map {
+    position: relative;
+    height: 400px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.world-element {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.world-element:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.world-element i {
+    font-size: 2rem;
+    color: var(--fire-red);
+}
+
+.world-element span {
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.fire-tower {
+    top: 20%;
+    left: 20%;
+}
+
+.air-drones {
+    top: 20%;
+    right: 20%;
+}
+
+.air-drones i {
+    color: var(--aqua);
+}
+
+.earth-garden {
+    bottom: 20%;
+    left: 20%;
+}
+
+.earth-garden i {
+    color: var(--green);
+}
+
+.water-river {
+    bottom: 20%;
+    right: 20%;
+}
+
+.water-river i {
+    color: var(--aqua);
+}
+
+.world-description ul {
+    list-style: none;
+    margin-top: 20px;
+}
+
+.world-description li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.world-description i {
+    color: var(--fire-red);
+    font-size: 1.2rem;
+}
+
+.world-description li:nth-child(2) i {
+    color: var(--aqua);
+}
+
+.world-description li:nth-child(3) i {
+    color: var(--green);
+}
+
+.world-description li:nth-child(4) i {
+    color: var(--aqua);
+}
+
+/* Финал месяца */
+.final {
+    background: var(--light-gray);
+}
+
+.ceremony {
+    text-align: center;
+}
+
+.ceremony h3 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: var(--deep-blue);
+}
+
+.awards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.award {
+    background: var(--white);
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.award:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-hover);
+}
+
+.award i {
+    font-size: 3rem;
+    color: var(--fire-red);
+    margin-bottom: 20px;
+}
+
+.award h4 {
+    font-size: 1.2rem;
+    color: var(--deep-blue);
+}
+
+/* Форма подписки */
+.join {
+    background: var(--deep-blue);
+    color: var(--white);
+}
+
+.join .section-title {
+    color: var(--white);
+}
+
+.join-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.join-description {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.join-button {
+    background: var(--gradient-fire);
+    border: none;
+    padding: 20px 40px;
+    border-radius: 30px;
+    color: var(--white);
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 0 auto 20px;
+}
+
+.join-button:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+}
+
+.join-note {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Футер */
+.footer {
+    background: var(--dark-gray);
+    color: var(--white);
+    padding: 40px 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-info a {
+    color: var(--aqua);
+    text-decoration: none;
+}
+
+.footer-elements {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-elements i {
+    font-size: 1.5rem;
+    color: var(--fire-red);
+}
+
+.footer-elements i:nth-child(2) {
+    color: var(--aqua);
+}
+
+.footer-elements i:nth-child(3) {
+    color: var(--green);
+}
+
+.footer-elements i:nth-child(4) {
+    color: var(--aqua);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+    }
+    
+    .hamburger {
+        display: flex;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .world-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .world-map {
+        height: 300px;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+    
+    .elements-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .workflow {
+        grid-template-columns: 1fr;
+    }
+    
+    .departments-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .element-card {
+        padding: 30px 20px;
+    }
+    
+    .join-button {
+        padding: 15px 30px;
+        font-size: 1rem;
+    }
+}
+
+/* Анимации при прокрутке */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.slide-in-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.6s ease;
+}
+
+.slide-in-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.slide-in-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.6s ease;
+}
+
+.slide-in-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.scale-in {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.6s ease;
+}
+
+.scale-in.visible {
+    opacity: 1;
+    transform: scale(1);
+}

@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Эра Четырёх - Корпоративный гейм</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="modern-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-icon">
+                    <i class="fas fa-fire"></i>
+                    <i class="fas fa-wind"></i>
+                    <i class="fas fa-seedling"></i>
+                    <i class="fas fa-tint"></i>
+                </div>
+                <span>Эра Четырёх</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#about">О гейме</a>
+                <a href="#mechanics">Механики</a>
+                <a href="#participants">Участники</a>
+                <a href="#leaderboard">Лидеры</a>
+                <a href="#world">Мир будущего</a>
+                <a href="#join" class="cta-button">Присоединиться</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Главный экран -->
+    <section id="hero" class="hero">
+        <div class="hero-background">
+            <div class="element element-fire"></div>
+            <div class="element element-air"></div>
+            <div class="element element-earth"></div>
+            <div class="element element-water"></div>
+            <div class="united-ring"></div>
+            <div class="energy-particles"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span>КОРПОРАТИВНЫЙ ГЕЙМ</span>
+            </div>
+            <h1 class="hero-title">Эра Четырёх</h1>
+            <p class="hero-subtitle">Четыре стихии. Один рывок. Будущее строят вместе.</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">1</span>
+                    <span class="stat-label">месяц</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">4</span>
+                    <span class="stat-label">стихии</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">17</span>
+                    <span class="stat-label">команд</span>
+                </div>
+            </div>
+            <button class="hero-cta" onclick="scrollToSection('about')">
+                <span>Узнать больше</span>
+                <i class="fas fa-arrow-down"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- О гейме -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">О гейме</h2>
+                <p class="section-subtitle">Месячное путешествие в мир стихий для укрепления ключевых активностей</p>
+            </div>
+            <div class="game-info">
+                <div class="game-overview">
+                    <div class="overview-card">
+                        <div class="overview-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h3>Длительность</h3>
+                        <p>1 календарный месяц с еженедельными итогами</p>
+                    </div>
+                    <div class="overview-card">
+                        <div class="overview-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Формат</h3>
+                        <p>Командный гейм с финальным лидером месяца</p>
+                    </div>
+                    <div class="overview-card">
+                        <div class="overview-icon">
+                            <i class="fas fa-target"></i>
+                        </div>
+                        <h3>Цель</h3>
+                        <p>Усилить 4 ключевые активности и создать культуру эффективной работы</p>
+                    </div>
+                    <div class="overview-card">
+                        <div class="overview-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3>Призы и признание</h3>
+                        <p>Еженедельные награды, титул "Хранители Эры" и ценные призы для победителей</p>
+                    </div>
+                </div>
+                <div class="elements-grid">
+                    <div class="element-card fire">
+                        <div class="element-header">
+                            <div class="element-icon">
+                                <i class="fas fa-fire"></i>
+                            </div>
+                            <div class="element-number">01</div>
+                        </div>
+                        <h4>🔥 Стихия Огня</h4>
+                        <p class="element-description">Универсальные шаблоны писем</p>
+                        <div class="element-power">
+                            <strong>Сила:</strong> Коммуникация, которая вдохновляет
+                        </div>
+                        <div class="element-details">
+                            <p>Каждое письмо — это не просто текст. Это сигнал клиенту: «Ты важен. Мы профессионалы. Мы помним, о чём говорили».</p>
+                            
+                            <div class="expandable-section">
+                                <button class="expand-btn" onclick="toggleSection(this)">
+                                    <span class="expand-text">Подробнее</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                                <div class="expandable-content">
+                                    <div class="element-features">
+                                        <h5>С помощью универсальных шаблонов писем в Контур.Продажах вы можете:</h5>
+                                        <ul>
+                                            <li>🔹 Отправлять резюме звонка с договорённостями и датой следующей встречи</li>
+                                            <li>🔹 Напоминать о презентации за 1 час до старта</li>
+                                            <li>🔹 Фиксировать сделку: КП + счёт + срок оплаты — всё в одном письме</li>
+                                            <li>🔹 Быстро реагировать на недозвон, не теряя клиента</li>
+                                        </ul>
+                                    </div>
+                                    <div class="element-benefits">
+                                        <h5>✅ Польза:</h5>
+                                        <ul>
+                                            <li>— Экономия времени: не пишете с нуля</li>
+                                            <li>— Профессиональный вид: единый стиль, логотип, ссылки</li>
+                                            <li>— Доверие клиента: выглядит официально и надёжно</li>
+                                        </ul>
+                                    </div>
+                                    <div class="element-participation">
+                                        <h5>📊 Как участвовать:</h5>
+                                        <p>Отправляйте шаблоны при каждом контакте.<br>
+                                        <strong>Ваша цель — максимальный % использования шаблонов от общего числа клиентов.</strong></p>
+                                    </div>
+                                    <div class="element-quote">
+                                        <blockquote>
+                                            «Шаблоны — это огонь. Они зажигают диалог и ускоряют сделку»
+                                            <cite>— Анастасия Дергунова, Контур Экстерн</cite>
+                                        </blockquote>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="element-card air">
+                        <div class="element-header">
+                            <div class="element-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <div class="element-number">02</div>
+                        </div>
+                        <h4>💬 Стихия Воздуха</h4>
+                        <p class="element-description">Корпоративные чаты и коммуникации</p>
+                        <div class="element-power">
+                            <strong>Сила:</strong> Связь, которая дышит
+                        </div>
+                        <div class="element-details">
+                            <p>Чат — это не просто сообщение. Это живое, мгновенное дыхание отношений с клиентом.</p>
+                            
+                            <div class="expandable-section">
+                                <button class="expand-btn" onclick="toggleSection(this)">
+                                    <span class="expand-text">Подробнее</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                                <div class="expandable-content">
+                                    <div class="element-features">
+                                        <h5>С корпоративным мессенджером в Контур.Продажах вы:</h5>
+                                        <ul>
+                                            <li>🔹 Общаетесь с клиентами в WhatsApp через бизнес-аккаунт</li>
+                                            <li>🔹 Храните всю историю переписки — даже при смене менеджера</li>
+                                            <li>🔹 Гарантируете безопасность и конфиденциальность данных</li>
+                                            <li>🔹 Повышаете конверсию — быстрый ответ = доверие</li>
+                                        </ul>
+                                    </div>
+                                    <div class="element-benefits">
+                                        <h5>✅ Польза:</h5>
+                                        <ul>
+                                            <li>— Все коммуникации в одной системе</li>
+                                            <li>— Контроль и прозрачность для руководителей</li>
+                                            <li>— Клиенты видят: вы — официальная компания, а не частник</li>
+                                        </ul>
+                                    </div>
+                                    <div class="element-participation">
+                                        <h5>📊 Как участвовать:</h5>
+                                        <p>Ведите диалоги с клиентами через чат.<br>
+                                        <strong>Ваша цель — максимальный % клиентов, с которыми вы общались в чате.</strong></p>
+                                    </div>
+                                    <div class="element-quote">
+                                        <blockquote>
+                                            «Чаты — это воздух. Без них невозможно дышать в современных продажах»
+                                            <cite>— Екатерина Сердитая, Диадок</cite>
+                                        </blockquote>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="element-card earth">
+                        <div class="element-header">
+                            <div class="element-icon">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <div class="element-number">03</div>
+                        </div>
+                        <h4>🌱 Стихия Земли</h4>
+                        <p class="element-description">Лидогенерация по реферальной программе</p>
+                        <div class="element-power">
+                            <strong>Сила:</strong> Рост, который начинается с одного вопроса
+                        </div>
+                        <div class="element-details">
+                            <p>Каждый ваш клиент может стать источником новых сделок. Достаточно задать 3–4 диагностических вопроса — и выявить потенциального реферального партнёра.</p>
+                            
+                            <div class="expandable-section">
+                                <button class="expand-btn" onclick="toggleSection(this)">
+                                    <span class="expand-text">Подробнее</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                                <div class="expandable-content">
+                                    <div class="element-features">
+                                        <h5>Реферальная программа — это:</h5>
+                                        <ul>
+                                            <li>🔹 Клиент приводит клиента — вы получаете новые лиды без затрат</li>
+                                            <li>🔹 Переданный лид попадает в ОПРП (отдел по работе с рефералами) — за ним закрепляется ваше имя</li>
+                                            <li>🔹 Вы получаете заявки от этого партнёра — можете обрабатывать сами или передавать в ЦК</li>
+                                        </ul>
+                                    </div>
+                                    <div class="element-benefits">
+                                        <h5>✅ Польза:</h5>
+                                        <ul>
+                                            <li>— Устойчивый рост: не только текущие, но и будущие продления</li>
+                                            <li>— Дополнительный доход: за каждую успешную сделку — вознаграждение</li>
+                                            <li>— Простота: не нужно искать клиентов — они приходят через ваших клиентов</li>
+                                        </ul>
+                                    </div>
+                                    <div class="element-participation">
+                                        <h5>📊 Как участвовать:</h5>
+                                        <p>Задавайте вопросы при каждом контакте.<br>
+                                        <strong>Ваша цель — максимальный % клиентов, ставших источником лида.</strong></p>
+                                    </div>
+                                    <div class="element-quote">
+                                        <blockquote>
+                                            💡 Руководит процессом — Николай Шевчишин, ОПРП
+                                        </blockquote>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="element-card water">
+                        <div class="element-header">
+                            <div class="element-icon">
+                                <i class="fas fa-tint"></i>
+                            </div>
+                            <div class="element-number">04</div>
+                        </div>
+                        <h4>💧 Стихия Воды</h4>
+                        <p class="element-description">Обработка горячих заявок ≤15 минут</p>
+                        <div class="element-power">
+                            <strong>Сила:</strong> Скорость, которая решает всё
+                        </div>
+                        <div class="element-details">
+                            <p>Первые 15 минут после заявки — самые важные. Именно в этот момент клиент решает: остаться с нами или уйти к конкуренту.</p>
+                            
+                            <div class="expandable-section">
+                                <button class="expand-btn" onclick="toggleSection(this)">
+                                    <span class="expand-text">Подробнее</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                                <div class="expandable-content">
+                                    <div class="element-features">
+                                        <h5>Обработка заявки за ≤15 минут — это:</h5>
+                                        <ul>
+                                            <li>🔹 Мгновенная реакция на интерес клиента</li>
+                                            <li>🔹 Подтверждение, что вы — оперативная и надёжная команда</li>
+                                            <li>🔹 Повышение конверсии: чем быстрее ответ — тем выше шанс закрыть сделку</li>
+                                        </ul>
+                                    </div>
+                                    <div class="element-benefits">
+                                        <h5>✅ Польза:</h5>
+                                        <ul>
+                                            <li>— Высокая конверсия: до 70% от быстрых откликов</li>
+                                            <li>— Доверие клиента: он чувствует, что его ценят</li>
+                                            <li>— Чистая метрика: легко измерить, улучшить, развить</li>
+                                        </ul>
+                                    </div>
+                                    <div class="element-participation">
+                                        <h5>📊 Как участвовать:</h5>
+                                        <p>Обрабатывайте каждую горячую заявку в течение 15 минут.<br>
+                                        <strong>Ваша цель — максимальный % соблюдения SLA.</strong></p>
+                                    </div>
+                                    <div class="element-quote">
+                                        <blockquote>
+                                            «Вода не ждёт. И клиент — тоже. Первый ответ = первое доверие»
+                                            <cite>— Юлия Михеевская, Диадок</cite>
+                                        </blockquote>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Механики гейма -->
+    <section id="mechanics" class="mechanics">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Механики гейма</h2>
+                <p class="section-subtitle">Система баллов и еженедельные вызовы</p>
+            </div>
+            <div class="mechanics-content">
+                <div class="mechanics-overview">
+                    <div class="mechanics-card">
+                        <h3>Еженедельные итоги</h3>
+                        <p>Каждую неделю фокус на одной стихии. Побеждает команда с наилучшим результатом по доле активности от общего числа обработанных клиентов.</p>
+                    </div>
+                    <div class="mechanics-card">
+                        <h3>Система баллов</h3>
+                        <p>1% выполнения = 1 балл. Финальный подсчёт общего прогресса по всем стихиям за месяц.</p>
+                    </div>
+                    <div class="mechanics-card">
+                        <h3>Финал месяца</h3>
+                        <p>Команда с наибольшим количеством баллов становится чемпионом и получает титул "Хранители Эры".</p>
+                    </div>
+                </div>
+                <div class="weekly-schedule">
+                    <h3>Расписание недель</h3>
+                    <div class="week-cards">
+                        <div class="week-card fire-week">
+                            <div class="week-header">
+                                <span class="week-number">01</span>
+                                <i class="fas fa-fire"></i>
+                            </div>
+                            <h4>Эра Огня</h4>
+                            <p>Доля отправленных шаблонов от общего числа клиентов</p>
+                            <div class="week-formula">
+                                <code>(Шаблоны / Клиенты) × 100%</code>
+                            </div>
+                        </div>
+                        <div class="week-card air-week">
+                            <div class="week-header">
+                                <span class="week-number">02</span>
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <h4>Эра Воздуха</h4>
+                            <p>Доля коммуникаций в чатах от общего числа клиентов</p>
+                            <div class="week-formula">
+                                <code>(Чаты / Клиенты) × 100%</code>
+                            </div>
+                        </div>
+                        <div class="week-card earth-week">
+                            <div class="week-header">
+                                <span class="week-number">03</span>
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <h4>Эра Земли</h4>
+                            <p>Доля переданных лидов от общего числа клиентов</p>
+                            <div class="week-formula">
+                                <code>(Лиды / Клиенты) × 100%</code>
+                            </div>
+                        </div>
+                        <div class="week-card water-week">
+                            <div class="week-header">
+                                <span class="week-number">04</span>
+                                <i class="fas fa-tint"></i>
+                            </div>
+                            <h4>Эра Воды</h4>
+                            <p>Доля заявок, обработанных ≤15 минут</p>
+                            <div class="week-formula">
+                                <code>(SLA / Всего) × 100%</code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Участники -->
+    <section id="participants" class="participants">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Участники</h2>
+                <p class="section-subtitle">Все отделы продления в борьбе за титул</p>
+            </div>
+            <div class="departments-grid">
+                <div class="department-card">
+                    <div class="department-header">
+                        <h4>Артур Оганисян</h4>
+                        <div class="department-badge">Лидер</div>
+                    </div>
+                    <p>Маркет, ОФД, Отель</p>
+                </div>
+                <div class="department-card">
+                    <div class="department-header">
+                        <h4>Контур Экстерн</h4>
+                        <div class="department-badge">6 команд</div>
+                    </div>
+                    <p>Тарас Скрипниченко, Людмила Головаха, Дмитрий Михайлин, Екатерина Бессмертная, Сергей Соколов, Анастасия Дергунова</p>
+                </div>
+                <div class="department-card">
+                    <div class="department-header">
+                        <h4>Диадок</h4>
+                        <div class="department-badge">4 команды</div>
+                    </div>
+                    <p>Екатерина Тропинская, Надежда Сердитая, Юлия Гурская, Анастасия Михеюшкина</p>
+                </div>
+                <div class="department-card">
+                    <div class="department-header">
+                        <h4>КЭП</h4>
+                        <div class="department-badge">1 команда</div>
+                    </div>
+                    <p>Юлия Белякова</p>
+                </div>
+                <div class="department-card">
+                    <div class="department-header">
+                        <h4>Недвижимость</h4>
+                        <div class="department-badge">1 команда</div>
+                    </div>
+                    <p>Светлана Новожилова</p>
+                </div>
+                <div class="department-card">
+                    <div class="department-header">
+                        <h4>Сегмент+</h4>
+                        <div class="department-badge">1 команда</div>
+                    </div>
+                    <p>Артём Низов</p>
+                </div>
+                <div class="department-card">
+                    <div class="department-header">
+                        <h4>Контур Толк</h4>
+                        <div class="department-badge">1 команда</div>
+                    </div>
+                    <p>Евгений Гончаров</p>
+                </div>
+                <div class="department-card">
+                    <div class="department-header">
+                        <h4>ЭДО</h4>
+                        <div class="department-badge">1 команда</div>
+                    </div>
+                    <p>Алина Коновалова</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Лидеры и итоги -->
+    <section id="leaderboard" class="leaderboard">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Лидеры и итоги</h2>
+                <p class="section-subtitle">Актуальные результаты и рейтинги</p>
+            </div>
+            <div class="leaderboard-content">
+                <div class="current-week">
+                    <h3>Текущая неделя: <span class="week-name">Эра Огня</span></h3>
+                    <div class="week-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 65%"></div>
+                        </div>
+                        <span class="progress-text">65% недели завершено</span>
+                    </div>
+                </div>
+                <div class="leaderboard-grid">
+                    <div class="leaderboard-section">
+                        <h4>Топ команд этой недели</h4>
+                        <div class="leaderboard-list">
+                            <div class="leader-item first">
+                                <div class="leader-rank">1</div>
+                                <div class="leader-info">
+                                    <h5>Контур Экстерн</h5>
+                                    <p>Тарас Скрипниченко</p>
+                                </div>
+                                <div class="leader-score">87%</div>
+                            </div>
+                            <div class="leader-item second">
+                                <div class="leader-rank">2</div>
+                                <div class="leader-info">
+                                    <h5>Диадок</h5>
+                                    <p>Екатерина Тропинская</p>
+                                </div>
+                                <div class="leader-score">82%</div>
+                            </div>
+                            <div class="leader-item third">
+                                <div class="leader-rank">3</div>
+                                <div class="leader-info">
+                                    <h5>Артур Оганисян</h5>
+                                    <p>Маркет</p>
+                                </div>
+                                <div class="leader-score">78%</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="leaderboard-section">
+                        <h4>Общий рейтинг месяца</h4>
+                        <div class="leaderboard-list">
+                            <div class="leader-item first">
+                                <div class="leader-rank">1</div>
+                                <div class="leader-info">
+                                    <h5>Диадок</h5>
+                                    <p>Екатерина Тропинская</p>
+                                </div>
+                                <div class="leader-score">245</div>
+                            </div>
+                            <div class="leader-item second">
+                                <div class="leader-rank">2</div>
+                                <div class="leader-info">
+                                    <h5>Контур Экстерн</h5>
+                                    <p>Тарас Скрипниченко</p>
+                                </div>
+                                <div class="leader-score">238</div>
+                            </div>
+                            <div class="leader-item third">
+                                <div class="leader-rank">3</div>
+                                <div class="leader-info">
+                                    <h5>КЭП</h5>
+                                    <p>Юлия Белякова</p>
+                                </div>
+                                <div class="leader-score">225</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="weekly-awards">
+                    <h4>Награды недели</h4>
+                    <div class="awards-grid">
+                        <div class="award-item">
+                            <i class="fas fa-fire"></i>
+                            <h5>Огненный знак</h5>
+                            <p>За лучший результат в использовании шаблонов</p>
+                        </div>
+                        <div class="award-item">
+                            <i class="fas fa-trophy"></i>
+                            <h5>Публичное признание</h5>
+                            <p>В корпоративном чате и на стенде</p>
+                        </div>
+                        <div class="award-item">
+                            <i class="fas fa-gift"></i>
+                            <h5>Бонус</h5>
+                            <p>Дополнительное вознаграждение</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Мир будущего -->
+    <section id="world" class="future-world">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Мир Будущего</h2>
+                <p class="section-subtitle">Интерактивная карта прогресса команд</p>
+            </div>
+            <div class="world-container">
+                <div class="world-map">
+                    <div class="world-element fire-tower" data-element="fire">
+                        <div class="element-glow"></div>
+                        <i class="fas fa-fire"></i>
+                        <span>Башня коммуникаций</span>
+                        <div class="element-progress">87%</div>
+                    </div>
+                    <div class="world-element air-drones" data-element="air">
+                        <div class="element-glow"></div>
+                        <i class="fas fa-plane"></i>
+                        <span>Транспортные дроны</span>
+                        <div class="element-progress">82%</div>
+                    </div>
+                    <div class="world-element earth-garden" data-element="earth">
+                        <div class="element-glow"></div>
+                        <i class="fas fa-seedling"></i>
+                        <span>Сад роста</span>
+                        <div class="element-progress">78%</div>
+                    </div>
+                    <div class="world-element water-river" data-element="water">
+                        <div class="element-glow"></div>
+                        <i class="fas fa-tint"></i>
+                        <span>Река скорости</span>
+                        <div class="element-progress">92%</div>
+                    </div>
+                </div>
+                <div class="world-description">
+                    <h3>Как растёт мир</h3>
+                    <p>Интерактивная карта, где по мере роста баллов команд:</p>
+                    <ul>
+                        <li><i class="fas fa-fire"></i> загорается башня коммуникаций</li>
+                        <li><i class="fas fa-plane"></i> летают транспортные дроны</li>
+                        <li><i class="fas fa-seedling"></i> растёт сад роста</li>
+                        <li><i class="fas fa-tint"></i> течёт река скорости</li>
+                    </ul>
+                    <div class="world-stats">
+                        <div class="world-stat">
+                            <span class="stat-value">87%</span>
+                            <span class="stat-label">Огонь</span>
+                        </div>
+                        <div class="world-stat">
+                            <span class="stat-value">82%</span>
+                            <span class="stat-label">Воздух</span>
+                        </div>
+                        <div class="world-stat">
+                            <span class="stat-value">78%</span>
+                            <span class="stat-label">Земля</span>
+                        </div>
+                        <div class="world-stat">
+                            <span class="stat-value">92%</span>
+                            <span class="stat-label">Вода</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Финал месяца -->
+    <section id="final" class="final">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Финал месяца</h2>
+                <p class="section-subtitle">Церемония "Воссоединение Стихий"</p>
+            </div>
+            <div class="final-content">
+                <div class="ceremony">
+                    <div class="ceremony-header">
+                        <h3>Воссоединение Стихий</h3>
+                        <p>Подводится общий зачёт по всем активностям за месяц. Баллы начисляются за процент выполнения каждой активности.</p>
+                    </div>
+                    <div class="awards">
+                        <div class="award">
+                            <div class="award-icon">
+                                <i class="fas fa-crown"></i>
+                            </div>
+                            <h4>Титул "Хранители Эры"</h4>
+                            <p>Почётное звание для команды-победителя</p>
+                        </div>
+                        <div class="award">
+                            <div class="award-icon">
+                                <i class="fas fa-medal"></i>
+                            </div>
+                            <h4>Призы и медали</h4>
+                            <p>Гаджеты, бонусы и памятные награды</p>
+                        </div>
+                        <div class="award">
+                            <div class="award-icon">
+                                <i class="fas fa-video"></i>
+                            </div>
+                            <h4>Видеоотчёт</h4>
+                            <p>Памятный ролик о достижениях команды</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Форма подписки -->
+    <section id="join" class="join">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Готов строить будущее?</h2>
+                <p class="section-subtitle">Присоединяйся к команде и стань частью легенды</p>
+            </div>
+            <div class="join-content">
+                <div class="join-info">
+                    <div class="join-badge">
+                        <i class="fas fa-rocket"></i>
+                        <span>СТАРТ ГЕЙМА</span>
+                    </div>
+                    <p class="join-description">Гейм стартует 1 сентября. Участвуют все отделы продления.</p>
+                </div>
+                <button class="join-button">
+                    <span>Присоединиться к Эре Четырёх</span>
+                    <i class="fas fa-rocket"></i>
+                </button>
+                <div class="join-features">
+                    <div class="feature">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Еженедельные итоги</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-trophy"></i>
+                        <span>Призы и награды</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-users"></i>
+                        <span>Командная работа</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-fire"></i>
+                            <i class="fas fa-wind"></i>
+                            <i class="fas fa-seedling"></i>
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <span>Эра Четырёх</span>
+                    </div>
+                    <p>&copy; 2025 — Гейм "Эра Четырёх"</p>
+                    <p>По вопросам: <a href="https://t.me/danilkoptelev" target="_blank">@danilkoptelev</a></p>
+                </div>
+                <div class="footer-elements">
+                    <i class="fas fa-fire"></i>
+                    <i class="fas fa-wind"></i>
+                    <i class="fas fa-seedling"></i>
+                    <i class="fas fa-tint"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
