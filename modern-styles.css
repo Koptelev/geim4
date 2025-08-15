@@ -976,38 +976,80 @@
 /* Адаптивность */
 @media (max-width: 768px) {
     .section-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
+        letter-spacing: 2px;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
     }
     
     .hero-stats {
-        gap: 20px;
+        gap: 15px;
+        flex-wrap: wrap;
     }
     
     .stat-number {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
     
-    .week-cards {
-        grid-template-columns: 1fr;
+    .stat-label {
+        font-size: 0.8rem;
     }
     
-    .leaderboard-grid {
+    .game-overview {
         grid-template-columns: 1fr;
+        gap: 20px;
     }
     
-    .awards-grid {
-        grid-template-columns: 1fr;
+    .overview-card {
+        padding: 25px 20px;
     }
     
-    .world-stats {
+    .overview-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+    
+    .overview-card h3 {
+        font-size: 1.1rem;
+    }
+    
+    .elements-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
     }
     
     .element-card {
-        padding: 30px 20px;
+        padding: 25px 20px;
     }
     
-    .element-features h5, .element-benefits h5, .element-participation h5 {
+    .element-header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    
+    .element-number {
+        font-size: 1.2rem;
+    }
+    
+    .element-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+    
+    .element-features h5, .element-benefits h5, .element-participation h5, .element-scoring h5 {
         font-size: 0.8rem;
     }
     
@@ -1022,33 +1064,404 @@
     .element-quote cite {
         font-size: 0.75rem;
     }
+    
+    .mechanics-overview {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .mechanics-card {
+        padding: 25px 20px;
+    }
+    
+    .mechanics-card h3 {
+        font-size: 1.1rem;
+    }
+    
+    .week-cards {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .week-card {
+        padding: 25px 20px;
+    }
+    
+    .week-card h4 {
+        font-size: 1rem;
+    }
+    
+    .week-formula code {
+        font-size: 0.8rem;
+    }
+    
+    .departments-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .department-card {
+        padding: 20px 15px;
+    }
+    
+    .department-header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    
+    .department-badge {
+        font-size: 0.8rem;
+        padding: 5px 10px;
+    }
+    
+    .leaderboard-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .leaderboard-section h4 {
+        font-size: 1rem;
+    }
+    
+    .leader-item {
+        padding: 15px;
+    }
+    
+    .leader-rank {
+        font-size: 1.2rem;
+        width: 40px;
+    }
+    
+    .leader-info h5 {
+        font-size: 0.9rem;
+    }
+    
+    .leader-info p {
+        font-size: 0.8rem;
+    }
+    
+    .leader-score {
+        font-size: 1rem;
+    }
+    
+    .awards-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .award-item {
+        padding: 25px 20px;
+    }
+    
+    .award-item i {
+        font-size: 2rem;
+    }
+    
+    .award-item h5 {
+        font-size: 1rem;
+    }
+    
+    .world-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .world-map {
+        height: 250px;
+    }
+    
+    .world-element {
+        font-size: 0.8rem;
+    }
+    
+    .world-element i {
+        font-size: 1.5rem;
+    }
+    
+    .world-stats {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .world-stat {
+        padding: 15px;
+    }
+    
+    .stat-value {
+        font-size: 1.2rem;
+    }
+    
+    .awards {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .award {
+        padding: 25px 20px;
+    }
+    
+    .award i {
+        font-size: 2.5rem;
+    }
+    
+    .award h4 {
+        font-size: 1.1rem;
+    }
+    
+    .join-content {
+        padding: 0 20px;
+    }
+    
+    .join-button {
+        padding: 15px 30px;
+        font-size: 1rem;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .join-features {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .feature {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
 }
 
 @media (max-width: 480px) {
+    .section-title {
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.9rem;
+    }
+    
+    .hero-stats {
+        gap: 10px;
+    }
+    
+    .stat-number {
+        font-size: 1.5rem;
+    }
+    
+    .stat-label {
+        font-size: 0.7rem;
+    }
+    
+    .hero-badge {
+        padding: 6px 15px;
+    }
+    
+    .hero-badge span {
+        font-size: 0.7rem;
+    }
+    
     .element-card {
-        padding: 25px 15px;
+        padding: 20px 15px;
     }
     
     .element-power {
         padding: 8px 12px;
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
     
-    .element-features, .element-benefits, .element-participation {
-        margin: 15px 0;
+    .element-features, .element-benefits, .element-participation, .element-scoring {
+        margin: 12px 0;
     }
     
     .element-quote {
         padding: 12px;
-        margin-top: 20px;
+        margin-top: 15px;
     }
     
     .expand-btn {
         padding: 8px 15px;
-        font-size: 0.8rem;
+        font-size: 0.7rem;
     }
     
     .expandable-content.active {
         padding-top: 15px;
+    }
+    
+    .overview-card {
+        padding: 20px 15px;
+    }
+    
+    .overview-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+    
+    .overview-card h3 {
+        font-size: 1rem;
+    }
+    
+    .mechanics-card {
+        padding: 20px 15px;
+    }
+    
+    .mechanics-card h3 {
+        font-size: 1rem;
+    }
+    
+    .week-card {
+        padding: 20px 15px;
+    }
+    
+    .week-card h4 {
+        font-size: 0.9rem;
+    }
+    
+    .department-card {
+        padding: 15px 12px;
+    }
+    
+    .department-badge {
+        font-size: 0.7rem;
+        padding: 4px 8px;
+    }
+    
+    .leader-item {
+        padding: 12px;
+    }
+    
+    .leader-rank {
+        font-size: 1rem;
+        width: 35px;
+    }
+    
+    .leader-info h5 {
+        font-size: 0.8rem;
+    }
+    
+    .leader-info p {
+        font-size: 0.7rem;
+    }
+    
+    .leader-score {
+        font-size: 0.9rem;
+    }
+    
+    .award-item {
+        padding: 20px 15px;
+    }
+    
+    .award-item i {
+        font-size: 1.8rem;
+    }
+    
+    .award-item h5 {
+        font-size: 0.9rem;
+    }
+    
+    .world-map {
+        height: 200px;
+    }
+    
+    .world-element {
+        font-size: 0.7rem;
+    }
+    
+    .world-element i {
+        font-size: 1.2rem;
+    }
+    
+    .world-stat {
+        padding: 12px;
+    }
+    
+    .stat-value {
+        font-size: 1rem;
+    }
+    
+    .award {
+        padding: 20px 15px;
+    }
+    
+    .award i {
+        font-size: 2rem;
+    }
+    
+    .award h4 {
+        font-size: 1rem;
+    }
+    
+    .join-button {
+        padding: 12px 25px;
+        font-size: 0.9rem;
+    }
+    
+    .join-description {
+        font-size: 1rem;
+    }
+    
+    .join-note {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .section-title {
+        font-size: 1.3rem;
+    }
+    
+    .hero-title {
+        font-size: 1.8rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.8rem;
+    }
+    
+    .stat-number {
+        font-size: 1.3rem;
+    }
+    
+    .element-card {
+        padding: 15px 12px;
+    }
+    
+    .overview-card {
+        padding: 15px 12px;
+    }
+    
+    .mechanics-card {
+        padding: 15px 12px;
+    }
+    
+    .week-card {
+        padding: 15px 12px;
+    }
+    
+    .department-card {
+        padding: 12px 10px;
+    }
+    
+    .leader-item {
+        padding: 10px;
+    }
+    
+    .award-item {
+        padding: 15px 12px;
+    }
+    
+    .award {
+        padding: 15px 12px;
+    }
+    
+    .join-button {
+        padding: 10px 20px;
+        font-size: 0.8rem;
     }
 }
