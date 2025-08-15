@@ -307,11 +307,11 @@
     border-left-color: var(--purple);
 }
 
-.element-features, .element-benefits, .element-participation {
+.element-features, .element-benefits, .element-participation, .element-scoring {
     margin: 20px 0;
 }
 
-.element-features h5, .element-benefits h5, .element-participation h5 {
+.element-features h5, .element-benefits h5, .element-participation h5, .element-scoring h5 {
     font-family: 'Orbitron', monospace;
     font-size: 0.9rem;
     font-weight: 600;
@@ -332,26 +332,29 @@
     line-height: 1.4;
 }
 
-.element-participation p {
+.element-participation p, .element-scoring p {
     font-size: 0.85rem;
     line-height: 1.5;
     margin: 10px 0;
 }
 
-.element-participation strong {
+.element-participation strong, .element-scoring strong {
     color: var(--fire-red);
     font-weight: 700;
 }
 
-.element-card.air .element-participation strong {
+.element-card.air .element-participation strong,
+.element-card.air .element-scoring strong {
     color: var(--aqua);
 }
 
-.element-card.earth .element-participation strong {
+.element-card.earth .element-participation strong,
+.element-card.earth .element-scoring strong {
     color: var(--green);
 }
 
-.element-card.water .element-participation strong {
+.element-card.water .element-participation strong,
+.element-card.water .element-scoring strong {
     color: var(--purple);
 }
 
@@ -489,6 +492,7 @@
 .expandable-content .element-features,
 .expandable-content .element-benefits,
 .expandable-content .element-participation,
+.expandable-content .element-scoring,
 .expandable-content .element-quote {
     animation: slideDown 0.5s ease forwards;
     opacity: 0;
@@ -512,6 +516,10 @@
 
 .expandable-content.active .element-participation {
     animation-delay: 0.3s;
+}
+
+.expandable-content.active .element-scoring {
+    animation-delay: 0.35s;
 }
 
 .expandable-content.active .element-quote {
