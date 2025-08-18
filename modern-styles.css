@@ -101,30 +101,49 @@
 }
 
 .section-subtitle {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: var(--dark-gray);
-    opacity: 0.8;
-    max-width: 600px;
+    opacity: 0.9;
+    max-width: 800px;
     margin: 0 auto;
+    line-height: 1.6;
+}
+
+.section-subtitle strong {
+    color: var(--deep-blue);
+    font-weight: 800;
+    background: linear-gradient(135deg, rgba(255,71,87,0.08), rgba(255,107,53,0.08));
+    padding: 2px 6px;
+    border-radius: 8px;
 }
 
 /* Карточки обзора */
 .game-overview {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    display: flex;
+    flex-direction: column;
     gap: 30px;
     margin-bottom: 80px;
 }
 
+.overview-cards-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
 .overview-card {
     background: var(--white);
-    padding: 40px 30px;
+    padding: 50px 30px;
+    min-height: 280px;
     border-radius: var(--border-radius);
     text-align: center;
     box-shadow: var(--shadow);
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .overview-card::before {
@@ -142,24 +161,60 @@
     box-shadow: var(--shadow-hover);
 }
 
+.overview-card.important-notice {
+    background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+    border: 2px solid #ffc107;
+    box-shadow: var(--shadow-glow-fire);
+}
+
+.overview-card.important-notice .overview-icon {
+    background: var(--gradient-fire);
+}
+
+.overview-card.important-notice h3 {
+    color: #d63031;
+}
+
+.overview-card.important-notice p {
+    color: #2d3436;
+    font-weight: 500;
+}
+
+.overview-card.full-width {
+    width: auto;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 .overview-icon {
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
     background: var(--gradient-hero);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 20px;
-    font-size: 2rem;
+    margin: 0 auto 25px;
+    font-size: 2.2rem;
     color: var(--white);
 }
 
 .overview-card h3 {
     font-family: 'Orbitron', monospace;
-    font-size: 1.3rem;
-    margin-bottom: 15px;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
     color: var(--deep-blue);
+}
+
+.overview-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-color);
+    margin: 0;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Карточки стихий с крутым дизайном */
@@ -659,6 +714,115 @@
     color: var(--deep-blue);
 }
 
+/* Новые стили для недельных активностей */
+.week-focus {
+    font-weight: 600;
+    color: var(--fire-red);
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.week-card.air-week .week-focus {
+    color: var(--aqua);
+}
+
+.week-card.earth-week .week-focus {
+    color: var(--green);
+}
+
+.week-card.water-week .week-focus {
+    color: var(--purple);
+}
+
+.week-description {
+    color: var(--dark-gray);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    opacity: 0.8;
+}
+
+.week-rewards {
+    display: flex;
+    gap: 8px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.reward-badge {
+    background: var(--light-gray);
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--deep-blue);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Секция итогов недели */
+.weekly-results {
+    margin-top: 50px;
+    padding: 40px;
+    background: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.weekly-results h4 {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.4rem;
+    color: var(--deep-blue);
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.weekly-results p {
+    text-align: center;
+    color: var(--dark-gray);
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.result-item {
+    background: var(--light-gray);
+    padding: 25px 20px;
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.3s ease;
+}
+
+.result-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+.result-rank {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.result-details h5 {
+    font-size: 1rem;
+    color: var(--deep-blue);
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.result-details p {
+    color: var(--dark-gray);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
 /* Секция лидеров */
 .leaderboard {
     background: var(--deep-blue);
@@ -735,7 +899,20 @@
     align-items: center;
     padding: 20px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
+    transition: var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+.leader-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: var(--transition-slow);
 }
 
 .leader-item:last-child {
@@ -744,18 +921,55 @@
 
 .leader-item:hover {
     background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+}
+
+.leader-item:hover::before {
+    left: 100%;
 }
 
 .leader-item.first {
     background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 193, 7, 0.1));
+    box-shadow: inset 0 0 20px rgba(255, 215, 0, 0.1);
 }
 
 .leader-item.second {
     background: linear-gradient(135deg, rgba(192, 192, 192, 0.2), rgba(169, 169, 169, 0.1));
+    box-shadow: inset 0 0 20px rgba(192, 192, 192, 0.1);
 }
 
 .leader-item.third {
     background: linear-gradient(135deg, rgba(205, 127, 50, 0.2), rgba(184, 115, 51, 0.1));
+    box-shadow: inset 0 0 20px rgba(205, 127, 50, 0.1);
+}
+
+.leader-item.empty {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px dashed rgba(255, 255, 255, 0.3);
+    text-align: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.leader-item.empty .leader-rank {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 2rem;
+}
+
+.leader-item.empty .leader-info h5 {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.leader-item.empty .leader-info p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+}
+
+.leader-item.empty .leader-score {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1.5rem;
 }
 
 .leader-rank {
@@ -768,14 +982,17 @@
 
 .leader-item.first .leader-rank {
     color: #ffd700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
 }
 
 .leader-item.second .leader-rank {
     color: #c0c0c0;
+    text-shadow: 0 0 10px rgba(192, 192, 192, 0.5);
 }
 
 .leader-item.third .leader-rank {
     color: #cd7f32;
+    text-shadow: 0 0 10px rgba(205, 127, 50, 0.5);
 }
 
 .leader-info {
@@ -982,6 +1199,7 @@
     
     .section-subtitle {
         font-size: 1rem;
+        max-width: 700px;
     }
     
     .hero-title {
@@ -1005,23 +1223,42 @@
         font-size: 0.8rem;
     }
     
+    .overview-cards-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        max-width: 900px;
+        margin: 0 auto;
+        width: 100%;
+    }
+    
+    .overview-card.full-width {
+        max-width: 900px;
+    }
+    
     .game-overview {
-        grid-template-columns: 1fr;
         gap: 20px;
     }
     
     .overview-card {
-        padding: 25px 20px;
+        padding: 30px 20px;
+        min-height: 220px;
     }
     
     .overview-icon {
-        width: 60px;
-        height: 60px;
-        font-size: 1.5rem;
+        width: 70px;
+        height: 70px;
+        font-size: 1.7rem;
+        margin-bottom: 20px;
     }
     
     .overview-card h3 {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+    }
+    
+    .overview-card p {
+        font-size: 0.95rem;
+        line-height: 1.5;
     }
     
     .elements-grid {
@@ -1072,6 +1309,52 @@
     
     .mechanics-card {
         padding: 25px 20px;
+    }
+    
+    /* Адаптивность для недельных активностей */
+    .week-cards {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .week-card {
+        padding: 25px 20px;
+    }
+    
+    .week-rewards {
+        gap: 6px;
+    }
+    
+    .reward-badge {
+        font-size: 0.75rem;
+        padding: 3px 6px;
+    }
+    
+    .weekly-results {
+        padding: 30px 20px;
+        margin-top: 40px;
+    }
+    
+    .weekly-results h4 {
+        font-size: 1.2rem;
+    }
+    
+    .weekly-results p {
+        font-size: 1rem;
+    }
+    
+    .results-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        max-width: none;
+    }
+    
+    .result-item {
+        padding: 20px 15px;
+    }
+    
+    .result-rank {
+        font-size: 1.5rem;
     }
     
     .mechanics-card h3 {
@@ -1233,9 +1516,26 @@
 }
 
 @media (max-width: 480px) {
+    .overview-cards-row {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        max-width: 520px;
+        margin: 0 auto;
+        width: 100%;
+    }
+    
+    .overview-card.full-width {
+        max-width: 520px;
+    }
+    
     .section-title {
         font-size: 1.5rem;
         letter-spacing: 1px;
+    }
+    
+    .section-subtitle {
+        font-size: 0.9rem;
+        max-width: 600px;
     }
     
     .hero-title {
@@ -1285,6 +1585,59 @@
     }
     
     .expand-btn {
+    
+    /* Адаптивность для недельных активностей на мобильных */
+    .week-card {
+        padding: 20px 15px;
+    }
+    
+    .week-focus {
+        font-size: 0.9rem;
+    }
+    
+    .week-description {
+        font-size: 0.85rem;
+    }
+    
+    .week-rewards {
+        gap: 4px;
+        margin-top: 12px;
+    }
+    
+    .reward-badge {
+        font-size: 0.7rem;
+        padding: 2px 5px;
+    }
+    
+    .weekly-results {
+        padding: 25px 15px;
+        margin-top: 30px;
+    }
+    
+    .weekly-results h4 {
+        font-size: 1.1rem;
+    }
+    
+    .weekly-results p {
+        font-size: 0.95rem;
+    }
+    
+    .result-item {
+        padding: 15px 12px;
+        gap: 12px;
+    }
+    
+    .result-rank {
+        font-size: 1.3rem;
+    }
+    
+    .result-details h5 {
+        font-size: 0.9rem;
+    }
+    
+    .result-details p {
+        font-size: 0.85rem;
+    }
         padding: 8px 15px;
         font-size: 0.7rem;
     }
@@ -1294,7 +1647,8 @@
     }
     
     .overview-card {
-        padding: 20px 15px;
+        padding: 25px 15px;
+        min-height: 200px;
     }
     
     .overview-icon {
