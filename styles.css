@@ -12,16 +12,43 @@
     --white: #ffffff;
     --light-gray: #f8f9fa;
     --dark-gray: #2c3e50;
+    
+    /* Улучшенные градиенты */
     --gradient-fire: linear-gradient(135deg, #ff4757, #ff6b35, #ff3838);
     --gradient-air: linear-gradient(135deg, #00d2d3, #54a0ff, #5f27cd);
     --gradient-earth: linear-gradient(135deg, #2ed573, #7bed9f, #26de81);
     --gradient-water: linear-gradient(135deg, #3742fa, #5f27cd, #a55eea);
     --gradient-hero: linear-gradient(135deg, #ff4757, #00d2d3, #2ed573, #5f27cd);
+    --gradient-gold: linear-gradient(135deg, #ffd700, #ffb347, #ff8c00);
+    --gradient-silver: linear-gradient(135deg, #c0c0c0, #a9a9a9, #808080);
+    --gradient-bronze: linear-gradient(135deg, #cd7f32, #daa520, #b8860b);
+    
+    /* Улучшенные тени */
     --shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.25);
     --shadow-glow: 0 0 30px rgba(255, 71, 87, 0.3);
+    --shadow-card: 0 8px 25px rgba(0, 0, 0, 0.1);
+    --shadow-elevated: 0 15px 35px rgba(0, 0, 0, 0.2);
+    --shadow-glow-fire: 0 0 20px rgba(255, 71, 87, 0.4);
+    --shadow-glow-aqua: 0 0 20px rgba(0, 210, 211, 0.4);
+    --shadow-glow-green: 0 0 20px rgba(46, 213, 115, 0.4);
+    --shadow-glow-purple: 0 0 20px rgba(95, 39, 205, 0.4);
+    
+    /* Радиусы */
     --border-radius: 20px;
     --border-radius-large: 30px;
+    --border-radius-small: 12px;
+    
+    /* Анимации */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+    --transition-bounce: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    /* Размеры */
+    --container-max-width: 1200px;
+    --section-padding: 100px 0;
+    --card-padding: 30px;
 }
 
 * {
@@ -30,12 +57,37 @@
     box-sizing: border-box;
 }
 
+/* Улучшенный скролл */
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Exo 2', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
     color: var(--dark-gray);
     overflow-x: hidden;
     background: var(--deep-blue);
+}
+
+/* Кастомный скроллбар */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--gradient-fire);
+    border-radius: 6px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--gradient-air);
 }
 
 .container {
@@ -89,11 +141,32 @@ body {
     color: var(--white);
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s ease;
+    transition: var(--transition-normal);
+    position: relative;
+    padding: 8px 16px;
+    border-radius: var(--border-radius-small);
 }
 
 .nav-menu a:hover {
     color: var(--aqua);
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--gradient-fire);
+    transition: var(--transition-normal);
+    transform: translateX(-50%);
+}
+
+.nav-menu a:hover::after {
+    width: 80%;
 }
 
 .cta-button {
@@ -250,16 +323,34 @@ body {
     font-size: 1.1rem;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: var(--transition-bounce);
     display: flex;
     align-items: center;
     gap: 10px;
     margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-glow-fire);
+}
+
+.hero-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: var(--transition-slow);
 }
 
 .hero-cta:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-hover);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: var(--shadow-elevated);
+}
+
+.hero-cta:hover::before {
+    left: 100%;
 }
 
 /* Секции */
@@ -313,10 +404,22 @@ section {
     padding: 40px 30px;
     border-radius: 20px;
     text-align: center;
-    box-shadow: var(--shadow);
-    transition: all 0.3s ease;
+    box-shadow: var(--shadow-card);
+    transition: var(--transition-bounce);
     position: relative;
     overflow: hidden;
+}
+
+.element-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+    opacity: 0;
+    transition: var(--transition-normal);
 }
 
 .element-card::before {
@@ -342,8 +445,12 @@ section {
 }
 
 .element-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-hover);
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: var(--shadow-elevated);
+}
+
+.element-card:hover::after {
+    opacity: 1;
 }
 
 .element-icon {
@@ -357,6 +464,30 @@ section {
     font-size: 2rem;
     color: var(--white);
     background: var(--gradient-fire);
+    transition: var(--transition-bounce);
+    position: relative;
+}
+
+.element-icon::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border-radius: 50%;
+    background: inherit;
+    filter: blur(12px);
+    opacity: 0;
+    transition: var(--transition-normal);
+}
+
+.element-card:hover .element-icon {
+    transform: scale(1.15) rotate(10deg);
+}
+
+.element-card:hover .element-icon::before {
+    opacity: 0.7;
 }
 
 .element-card.air .element-icon {
@@ -583,6 +714,7 @@ section {
 /* Финал месяца */
 .final {
     background: var(--light-gray);
+    padding: 80px 0;
 }
 
 .ceremony {
@@ -590,39 +722,485 @@ section {
 }
 
 .ceremony h3 {
-    font-size: 2rem;
-    margin-bottom: 40px;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
     color: var(--deep-blue);
+    background: var(--gradient-hero);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
-.awards {
+.ceremony-header p {
+    font-size: 1.2rem;
+    color: var(--dark-gray);
+    margin-bottom: 50px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Система подсчёта баллов */
+.scoring-system {
+    margin: 60px 0;
+    text-align: left;
+}
+
+.scoring-system h4 {
+    font-size: 1.8rem;
+    color: var(--deep-blue);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.scoring-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    margin-bottom: 40px;
 }
 
-.award {
+.scoring-item {
     background: var(--white);
-    padding: 40px 30px;
-    border-radius: 20px;
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-card);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: var(--transition-bounce);
+    position: relative;
+    overflow: hidden;
+}
+
+.scoring-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: var(--transition-slow);
+}
+
+.scoring-item:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--shadow-elevated);
+}
+
+.scoring-item:hover::before {
+    left: 100%;
+}
+
+.scoring-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--white);
+    flex-shrink: 0;
+    transition: var(--transition-bounce);
+    position: relative;
+}
+
+.scoring-icon::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 50%;
+    background: inherit;
+    filter: blur(8px);
+    opacity: 0;
+    transition: var(--transition-normal);
+}
+
+.scoring-item:hover .scoring-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.scoring-item:hover .scoring-icon::before {
+    opacity: 0.6;
+}
+
+.scoring-item:nth-child(1) .scoring-icon {
+    background: var(--gradient-fire);
+}
+
+.scoring-item:nth-child(2) .scoring-icon {
+    background: var(--gradient-air);
+}
+
+.scoring-item:nth-child(3) .scoring-icon {
+    background: var(--gradient-earth);
+}
+
+.scoring-item:nth-child(4) .scoring-icon {
+    background: var(--gradient-water);
+}
+
+.scoring-details h5 {
+    font-size: 1.1rem;
+    color: var(--deep-blue);
+    margin-bottom: 8px;
+}
+
+.scoring-details p {
+    color: var(--dark-gray);
+    font-size: 0.95rem;
+}
+
+/* Бонусная система */
+.bonus-system {
+    margin: 50px 0;
+}
+
+.bonus-system h4 {
+    font-size: 1.6rem;
+    color: var(--deep-blue);
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.bonus-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.bonus-item {
+    background: var(--white);
+    padding: 25px 20px;
+    border-radius: var(--border-radius);
     box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    gap: 15px;
     transition: all 0.3s ease;
 }
 
-.award:hover {
-    transform: translateY(-10px);
+.bonus-item:hover {
+    transform: translateY(-3px);
     box-shadow: var(--shadow-hover);
 }
 
-.award i {
-    font-size: 3rem;
-    color: var(--fire-red);
-    margin-bottom: 20px;
+.bonus-rank {
+    font-size: 2rem;
+    flex-shrink: 0;
 }
 
-.award h4 {
+.bonus-details h5 {
+    font-size: 1rem;
+    color: var(--deep-blue);
+    margin-bottom: 5px;
+}
+
+.bonus-details p {
+    color: var(--dark-gray);
+    font-size: 0.9rem;
+}
+
+/* Итоговый рейтинг */
+.final-ranking {
+    text-align: center;
+    margin: 40px 0;
+    padding: 30px;
+    background: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.final-ranking h4 {
+    font-size: 1.5rem;
+    color: var(--deep-blue);
+    margin-bottom: 15px;
+}
+
+.final-ranking p {
+    color: var(--dark-gray);
+    font-size: 1.1rem;
+}
+
+/* Призы */
+.prizes-section {
+    margin: 60px 0;
+}
+
+.prizes-section h4 {
+    font-size: 1.8rem;
+    color: var(--deep-blue);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.prizes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.prize-item {
+    background: var(--white);
+    padding: 40px 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-card);
+    text-align: center;
+    transition: var(--transition-bounce);
+    position: relative;
+    overflow: hidden;
+}
+
+.prize-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+    opacity: 0;
+    transition: var(--transition-normal);
+}
+
+.prize-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-fire);
+}
+
+.prize-item.second-prize::before {
+    background: var(--gradient-air);
+}
+
+.prize-item.third-prize::before {
+    background: var(--gradient-earth);
+}
+
+.prize-item:hover {
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: var(--shadow-elevated);
+}
+
+.prize-item:hover::after {
+    opacity: 1;
+}
+
+.prize-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--gradient-fire);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+    font-size: 2rem;
+    color: var(--white);
+    transition: var(--transition-bounce);
+    position: relative;
+}
+
+.prize-icon::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border-radius: 50%;
+    background: inherit;
+    filter: blur(12px);
+    opacity: 0;
+    transition: var(--transition-normal);
+}
+
+.prize-item:hover .prize-icon {
+    transform: scale(1.15) rotate(10deg);
+}
+
+.prize-item:hover .prize-icon::before {
+    opacity: 0.7;
+}
+
+.prize-item.second-prize .prize-icon {
+    background: var(--gradient-air);
+}
+
+.prize-item.third-prize .prize-icon {
+    background: var(--gradient-earth);
+}
+
+.prize-details h5 {
+    font-size: 1.3rem;
+    color: var(--deep-blue);
+    margin-bottom: 15px;
+}
+
+.prize-amount {
+    font-size: 1.2rem;
+    color: var(--fire-red);
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.prize-bonus {
+    font-size: 0.95rem;
+    color: var(--dark-gray);
+    opacity: 0.8;
+}
+
+/* Рейтинг лучших сотрудников */
+.individual-prizes-section {
+    margin: 60px 0;
+    padding: 40px;
+    background: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.individual-prizes-section h4 {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.6rem;
+    color: var(--deep-blue);
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.individual-prizes-section > p {
+    text-align: center;
+    color: var(--dark-gray);
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.individual-prizes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.individual-prize-item {
+    background: var(--light-gray);
+    padding: 30px 25px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.individual-prize-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-fire);
+}
+
+.individual-prize-item.second-individual::before {
+    background: var(--gradient-air);
+}
+
+.individual-prize-item.third-individual::before {
+    background: var(--gradient-earth);
+}
+
+.individual-prize-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.individual-prize-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: var(--gradient-fire);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 1.8rem;
+    color: var(--white);
+}
+
+.individual-prize-item.second-individual .individual-prize-icon {
+    background: var(--gradient-air);
+}
+
+.individual-prize-item.third-individual .individual-prize-icon {
+    background: var(--gradient-earth);
+}
+
+.individual-prize-details h5 {
     font-size: 1.2rem;
     color: var(--deep-blue);
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.individual-prize-amount {
+    font-size: 1.1rem;
+    color: var(--fire-red);
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.individual-prize-bonus {
+    font-size: 0.9rem;
+    color: var(--dark-gray);
+    opacity: 0.8;
+}
+
+.individual-rules {
+    background: var(--light-gray);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--fire-red);
+}
+
+.individual-rules h5 {
+    font-size: 1.1rem;
+    color: var(--deep-blue);
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.individual-rules ul {
+    list-style: none;
+    padding: 0;
+}
+
+.individual-rules li {
+    color: var(--dark-gray);
+    margin-bottom: 8px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.individual-rules li::before {
+    content: '•';
+    color: var(--fire-red);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
 }
 
 /* Форма подписки */
@@ -779,6 +1357,45 @@ section {
         width: 150px;
         height: 150px;
     }
+    
+    /* Адаптивность для финала */
+    .scoring-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .scoring-item {
+        padding: 20px;
+        gap: 15px;
+    }
+    
+    .scoring-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+    
+    .bonus-grid {
+        grid-template-columns: 1fr;
+        max-width: none;
+    }
+    
+    .prizes-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .prize-item {
+        padding: 30px 20px;
+    }
+    
+    .ceremony h3 {
+        font-size: 2rem;
+    }
+    
+    .ceremony-header p {
+        font-size: 1.1rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -827,6 +1444,96 @@ section {
     
     .nav-logo i {
         font-size: 1.2rem;
+    }
+    
+    /* Адаптивность для финала на мобильных */
+    .scoring-system h4,
+    .prizes-section h4 {
+        font-size: 1.5rem;
+    }
+    
+    .bonus-system h4 {
+        font-size: 1.4rem;
+    }
+    
+    .scoring-item {
+        padding: 15px;
+        gap: 12px;
+    }
+    
+    .scoring-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+    }
+    
+    .scoring-details h5 {
+        font-size: 1rem;
+    }
+    
+    .scoring-details p {
+        font-size: 0.9rem;
+    }
+    
+    .bonus-item {
+        padding: 20px 15px;
+    }
+    
+    .bonus-rank {
+        font-size: 1.5rem;
+    }
+    
+    .prize-item {
+        padding: 25px 15px;
+    }
+    
+    .prize-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+    
+    .prize-amount {
+        font-size: 1.1rem;
+    }
+    
+    .ceremony h3 {
+        font-size: 1.8rem;
+    }
+    
+    /* Адаптивность для рейтинга сотрудников */
+    .individual-prizes-section {
+        padding: 30px 20px;
+        margin: 40px 0;
+    }
+    
+    .individual-prizes-section h4 {
+        font-size: 1.4rem;
+    }
+    
+    .individual-prizes-section > p {
+        font-size: 1rem;
+    }
+    
+    .individual-prizes-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .individual-prize-item {
+        padding: 25px 20px;
+    }
+    
+    .individual-prize-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+    
+    .individual-rules {
+        padding: 20px 15px;
     }
 }
 
@@ -917,4 +1624,90 @@ section {
 .scale-in.visible {
     opacity: 1;
     transform: scale(1);
+}
+
+/* Улучшенная доступность */
+*:focus {
+    outline: 2px solid var(--aqua);
+    outline-offset: 2px;
+}
+
+button:focus,
+a:focus {
+    outline: 2px solid var(--fire-red);
+    outline-offset: 2px;
+}
+
+/* Улучшенные состояния для интерактивных элементов */
+button:active,
+a:active {
+    transform: scale(0.98);
+}
+
+/* Улучшенные эффекты для disabled состояний */
+button:disabled,
+a:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+/* Улучшенные анимации загрузки */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200px 0;
+    }
+    100% {
+        background-position: calc(200px + 100%) 0;
+    }
+}
+
+/* Применение анимаций */
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.fade-in-scale {
+    animation: fadeInScale 0.5s ease-out;
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+.shimmer {
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    background-size: 200px 100%;
+    animation: shimmer 1.5s infinite;
 }
