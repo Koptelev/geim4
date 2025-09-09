@@ -1,5 +1,73 @@
 /* Современные стили для крутого дизайна */
 
+/* Ссылка на детальные итоги */
+.detailed-results-link {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.detailed-results-link p {
+    margin: 0;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.detailed-results-link a {
+    color: var(--aqua);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.detailed-results-link a:hover {
+    color: var(--white);
+    text-shadow: 0 0 10px var(--aqua);
+}
+
+/* Анимация прогресс-бара для активной недели */
+.progress-fill.animated-progress {
+    background: linear-gradient(90deg, 
+        var(--aqua) 0%, 
+        #4dd0e1 25%, 
+        var(--aqua) 50%, 
+        #4dd0e1 75%, 
+        var(--aqua) 100%) !important;
+    background-size: 200% 100% !important;
+    animation: progressFlow 3s ease-in-out infinite !important;
+    position: relative !important;
+    overflow: hidden !important;
+    width: 15% !important;
+}
+
+.progress-fill.animated-progress::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(255, 255, 255, 0.4) 50%, 
+        transparent 100%);
+    animation: progressShine 2s ease-in-out infinite;
+}
+
+@keyframes progressFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes progressShine {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
 /* Логотип с анимацией стихий */
 .logo-icon {
     display: flex;
