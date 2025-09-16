@@ -1712,12 +1712,19 @@ a:disabled {
     animation: shimmer 1.5s infinite;
 }
 
+/* Контейнер для центрирования предупреждающего блока */
+.warning-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 30px 0;
+}
+
 /* Стили для предупреждающего блока */
 .data-warning {
     background: linear-gradient(135deg, #ff6b35, #ff4757);
     border-radius: var(--border-radius);
     padding: 25px;
-    margin: 30px auto !important;
     max-width: 800px;
     width: 90%;
     box-shadow: var(--shadow-glow-fire);
@@ -1726,9 +1733,6 @@ a:disabled {
     gap: 20px;
     animation: pulse 2s infinite;
     border: 2px solid rgba(255, 255, 255, 0.2);
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
 }
 
 /* Стили для сетки лидерборда */
@@ -1769,14 +1773,15 @@ a:disabled {
 
 /* Адаптивность для предупреждающего блока */
 @media (max-width: 768px) {
+    .warning-container {
+        margin: 20px 0;
+    }
+    
     .data-warning {
         flex-direction: column;
         text-align: center;
         padding: 20px;
-        margin: 20px auto !important;
         width: 95%;
-        left: 50%;
-        transform: translateX(-50%);
     }
     
     .warning-icon {
