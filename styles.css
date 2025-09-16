@@ -1717,15 +1717,18 @@ a:disabled {
     background: linear-gradient(135deg, #ff6b35, #ff4757);
     border-radius: var(--border-radius);
     padding: 25px;
-    margin: 30px auto;
+    margin: 30px auto !important;
     max-width: 800px;
-    width: 100%;
+    width: 90%;
     box-shadow: var(--shadow-glow-fire);
     display: flex;
     align-items: center;
     gap: 20px;
     animation: pulse 2s infinite;
     border: 2px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 /* Стили для сетки лидерборда */
@@ -1770,7 +1773,10 @@ a:disabled {
         flex-direction: column;
         text-align: center;
         padding: 20px;
-        margin: 20px 0;
+        margin: 20px auto !important;
+        width: 95%;
+        left: 50%;
+        transform: translateX(-50%);
     }
     
     .warning-icon {
