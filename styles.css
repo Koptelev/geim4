@@ -1712,31 +1712,6 @@ a:disabled {
     animation: shimmer 1.5s infinite;
 }
 
-/* Контейнер для центрирования предупреждающего блока */
-.warning-container {
-    width: 100%;
-    margin: 30px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Стили для предупреждающего блока */
-.data-warning {
-    background: linear-gradient(135deg, #ff6b35, #ff4757);
-    border-radius: var(--border-radius);
-    padding: 25px;
-    max-width: 800px;
-    width: 90%;
-    box-shadow: var(--shadow-glow-fire);
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    animation: pulse 2s infinite;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    flex-shrink: 0;
-}
-
 /* Стили для сетки лидерборда */
 .leaderboard-grid {
     display: grid;
@@ -1745,61 +1720,3 @@ a:disabled {
     width: 100%;
 }
 
-.warning-icon {
-    flex-shrink: 0;
-    width: 50px;
-    height: 50px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    color: var(--white);
-}
-
-.warning-content h4 {
-    color: var(--white);
-    margin: 0 0 10px 0;
-    font-size: 18px;
-    font-weight: 700;
-}
-
-.warning-content p {
-    color: var(--white);
-    margin: 0;
-    font-size: 16px;
-    line-height: 1.5;
-    opacity: 0.95;
-}
-
-/* Адаптивность для предупреждающего блока */
-@media (max-width: 768px) {
-    .warning-container {
-        margin: 20px 0;
-        display: flex;
-        justify-content: center;
-    }
-    
-    .data-warning {
-        flex-direction: column;
-        text-align: center;
-        padding: 20px;
-        width: 95%;
-        max-width: none;
-    }
-    
-    .warning-icon {
-        width: 40px;
-        height: 40px;
-        font-size: 20px;
-    }
-    
-    .warning-content h4 {
-        font-size: 16px;
-    }
-    
-    .warning-content p {
-        font-size: 14px;
-    }
-}
