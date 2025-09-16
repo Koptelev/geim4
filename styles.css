@@ -1719,12 +1719,21 @@ a:disabled {
     padding: 25px;
     margin: 30px auto;
     max-width: 800px;
+    width: 100%;
     box-shadow: var(--shadow-glow-fire);
     display: flex;
     align-items: center;
     gap: 20px;
     animation: pulse 2s infinite;
     border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Стили для сетки лидерборда */
+.leaderboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    width: 100%;
 }
 
 .warning-icon {
